@@ -1,0 +1,60 @@
+class QuoteMachine extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      theQuote: "Be yourself everyone else is already taken.",
+      theAuthor: "-Oscar Wilde"
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+ quotes = ["Be yourself; everyone else is already taken.",
+              "Be the change that you wish to see in the world.",
+              "No one can make you feel inferior without your consent.",
+              "Live as if you were to die tomorrow. Learn as if you were to live forever.",
+              "Darkness cannot drive out darkness only light can do that. Hate cannot drive out hate only love can do that.",
+              "Without music life would be a mistake.",
+              "We accept the love we think we deserve.",
+              "There are only two ways to live your life. One is as though nothing is a miracle. The other is as though everything is a miracle.",
+              "We are all in the gutter but some of us are looking at the stars.",
+              "Yesterday is history tomorrow is a mystery today is a gift of God which is why we call it the present."];
+authors = ["-Oscar Wilde",
+               "-Mahatma Gandhi",
+               "-Eleanor Roosevelt",
+               "-Mahatma Gandhi",
+               "-Martin Luther King Jr",
+               "-Friedrich Nietzsche",
+               "-Stephen Chbosky",
+               "-Albert Einstein",
+               "-Oscar Wilde",
+               "-Bill Keane"];
+
+    handleClick() {
+      let i = Math.floor(Math.random() * this.quotes.length);
+
+      this.setState({
+        theQuote: this.quotes[i],
+        theAuthor: this.authors[i]
+      });
+    }
+    
+  render() {
+    return ( <div>
+  <qb id= "quote-box" className= "row justify-content-center">
+    <div1 className="col-md-6">
+    <quote id= "text" className= "row">
+      {this.state.theQuote}
+    </quote>
+    <auth id= "author" className= "row">
+      {this.state.theAuthor}
+    </auth>
+      
+    <button id= "new-quote" className= "btn btn-primary" onClick={this.handleClick}>New Quote
+    </button>
+      <a href="twitter.com/intent/tweet" id= "tweet-quote" class= "fa fa-twitter">
+    </a>
+      </div1>
+  </qb>
+</div>
+    );
+  }}
+  ReactDOM.render(<QuoteMachine />, document.getElementById('app'));
